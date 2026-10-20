@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloAuto - Home Service Motor Bekasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGASI & SWITCH ROLE -->
+    <div class="top-bar">
+        <span id="role-status" class="status-badge customer">MODE AKTIF: KUSTEMER (Kota Bekasi)</span>
+        <button onclick="switchRole('customer')" class="btn-role customer">Tampilan Kustomer</button>
+        <button onclick="switchRole('admin')" class="btn-role admin">Tampilan Admin</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Velo<span>Auto</span> <small>Bekasi</small></div>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Pesan Home Service</a></li>
+            <li><a href="#">Lacak Montir</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- STATUS KONFIRMASI INPUT DATA (SEMBUNYI DULU DI AWAL) -->
+        <div id="status-container" class="status-container" style="display: none;">
+            <h3>Status Konfirmasi Input Data:</h3>
+            <div id="alert-success" class="alert success" style="display: none;">
+                ✓ Data pemesanan Home Service berhasil diinput!
+            </div>
+            <div id="alert-error" class="alert error" style="display: none;">
+                ✕ Data belum berhasil diinput! Silakan lengkapi formulir.
+            </div>
+        </div>
+
+        <!-- MODUL KUSTOMER: FORM PEMESANAN -->
+        <div id="customer-module" class="card workshop-card">
+            <h2>Pemesanan Home Service Motor Bekasi</h2>
+            <form id="booking-form" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label>Tipe Layanan:</label>
+                    <select id="tipe-layanan">
+                        <option value="Servis Terjadwal (Berkala)">Servis Terjadwal (Berkala)</option>
+                        <option value="Bantuan Darurat (Mogok)">Bantuan Darurat (Mogok)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Detail Kendala Motor:</label>
+                    <textarea id="detail-kendala" placeholder="Tulis keluhan..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Kirim Pesanan</button>
+            </form>
+        </div>
+
+        <!-- MODUL ADMIN: KELOLA SUKU CADANG (KHUSUS ADMIN - SEMBUNYI DI MODE KUSTOMER) -->
+        <div id="admin-module" class="card admin-border" style="display: none;">
+            <h2 class="admin-title">[ADMIN] Kelola Suku Cadang</h2>
+            <div class="product-card">
+                <div class="product-img-placeholder">Oli Motor</div>
+                <div class="product-info">
+                    <h4>Oli Machine VeloPro 1L</h4>
+                    <p class="price">Rp 65.000</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
